@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -28,40 +27,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WayApp">
         <activity
-            android:name=".ScanqrActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".tr4_3"
-            android:exported="false"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".tr4_2"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr4_1"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr3_4"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr3_3"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr3_2"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr3_1"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Aboutappway"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:name=".RecycleViewSmoke"
+            android:exported="false" />
         <activity
             android:name=".deleteaccountussersplash"
             android:exported="false"
@@ -71,59 +41,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tr1_7"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_6"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_5"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_4"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_3"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_2"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".tr1_1"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Trip4"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Trip3"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Trip2"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".sendletter"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".splashcreateaccount"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".createroadsplash"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Trip1"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

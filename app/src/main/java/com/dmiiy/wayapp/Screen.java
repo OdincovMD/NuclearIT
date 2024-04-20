@@ -33,7 +33,7 @@ private Handler handler =new Handler();
                 if (!isFinishing()) {
                     if (user != null) {
                         Toast.makeText(Screen.this, "Добро пожаловать !", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                     } else {
                         Toast.makeText(Screen.this, "Добро пожаловать !", Toast.LENGTH_SHORT).show();

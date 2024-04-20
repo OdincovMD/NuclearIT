@@ -53,14 +53,14 @@ private LinearLayout support,about;
         progressBar=(ProgressBar)findViewById(R.id.progressBarprofile) ;
         progressBar.setVisibility(View.VISIBLE);
         deletebtn =(Button) findViewById(R.id.deleteac);
-        appinfo=(TextView)findViewById(R.id.aboutapp);
-        appinfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Profile.this,Aboutappway.class);
-                startActivity(intent);
-            }
-        });
+       // appinfo=(TextView)findViewById(R.id.aboutapp);
+//        appinfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Profile.this,Aboutappway.class);
+//                startActivity(intent);
+//            }
+//        });
         gmail=(TextView)findViewById(R.id.gmailinfo);
         gmail.setOnClickListener(new View.OnClickListener() {
             @Override
