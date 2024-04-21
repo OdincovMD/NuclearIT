@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/bootstrap-utilities.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/bootstrap-reboot.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/bootstrap-grid.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet"/>
+    <style>
+        .bg {
+            background-image: url({{ url_for('static', filename='img/bg.jpg') }});
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-wrapper p-t-130 bg p-b-100 font-poppins">
+    <div id='success' class="alert alert-success w-25 mx-auto d-flex-n" role="alert"
+         style="display: none !important;">
+        <img src="{{ url_for('static', filename='img/s.png') }}" class="tiny">
+        <div class="ps-1">
+            Успешная загрузка изображения
+        </div>
+    </div>
+    <div id="error" class="alert alert-danger w-25 mx-auto d-flex-n" role="alert" style="display: none !important;">
+        <img src="{{ url_for('static', filename='img/e.png') }}" class="tiny">
+        <div class="ps-1">
+            Неизвестная ошибка загрузки файлов
+        </div>
+    </div>
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4 bg-gra-01">
+            <div class="card-body">
+                <h2 class="title">Проверьте, курящий ли человек на фото</h2>
+                <form method="POST" action="/send" enctype="multipart/form-data">
+                    <div class="row row-space">
+                        <div id="wrapper">
+                            <label for="upload" id="fileDropBox">Drop files here.</label>
+                            <input type="file" id="upload" style="display:none" accept="image/*">
+                        </div>
+                    </div>
+                </form>
+                <div id="preview"></div>
+            </div>
+        </div>
+        <a class="btn btn-primary mt-5" href="/logout">Выйти из аккаунта</a>
+        <a class="btn btn-info mt-5 ms-5" href="/view">Просмотр изображений</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.esm.js') }}"></script>
+<script>
+
+    function sendFile(file) {
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData();
+        formData.append('file', file, file.name);
+        // Open the connection.
+        xhr.open('POST', '/send', true);
+
+
+        // Set up a handler for when the task for the request is complete.
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                $('#success').show()
+                $("#success").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success").slideUp(500);
+                });
+                $("success").hide()
+            } else {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+            }
+        }
+        xhr.send(formData);
+    }
+
+    function handleDragOver(evt) {
+        evt.stopPropagation(); // Do not allow the dragover event to bubble.
+        evt.preventDefault(); // Prevent default dragover event behavior.
+    }
+
+    function handleFileReadAbort(evt) {
+        alert("File read aborted.");
+    } // handleFileReadAbort
+
+    function handleFileReadError(evt) {
+        var message;
+        switch (evt.target.error.name) {
+            case "NotFoundError":
+                alert("Невозможно найти файл.");
+                break;
+            case "SecurityError":
+                message = "<p>Ошибка безопасности</p>";
+                alert(message);
+                break;
+            case "NotReadableError":
+                alert("Невозможно открыть файл.");
+                break;
+            default:
+                alert("File error code " + evt.target.error.name);
+        } // switch
+    } // handleFileReadError
+
+    function handleFileSelection(evt) {
+        evt.stopPropagation(); // Do not allow the drop event to bubble.
+        evt.preventDefault(); // Prevent default drop event behavior.
+
+        var files = evt.dataTransfer.files; // Grab the list of files dragged to the drop box.
+
+        if (!files) {
+            $('#error').show()
+            $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                $("#error").slideUp(500);
+            });
+            $('#error').hide()
+            return;
+        }
+
+        // "files" is a FileList of file objects. Try to display the contents of each file:
+        for (var i = 0, file; file = files[i]; i++) {
+            if (!file) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue; // Immediately move to the next file object.
+            }
+            if (file.size == 0) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue;
+            }
+            if (!file.type.match('image/.*')) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue;
+            }
+            sendFile(file); // Asychronously fire off a file read request.
+        } // for
+    } // handleFileSelection
+
+    document.getElementById('fileDropBox').addEventListener('dragover', handleDragOver, false);
+    document.getElementById('fileDropBox').addEventListener('drop', handleFileSelection, false);
+</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
