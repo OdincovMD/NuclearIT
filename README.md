@@ -42,3 +42,8 @@ model = YOLO(f'/kaggle/working/runs/classify/train/weights/best.pt')
 В строке 
 output_folder = '/kaggle/working/new'
 необходимо указать путь куда, будут сохранены анотированные изображенния 
+
+
+
+# Ссылка на веса :
+https://drive.google.com/drive/folders/1ywxZjptfvIYMA3wGNuH6WCVL6bzXgDhP?usp=sharing
