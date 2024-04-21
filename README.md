@@ -47,3 +47,5 @@ output_folder = '/kaggle/working/new'
 
 # Ссылка на веса :
 https://drive.google.com/drive/folders/1ywxZjptfvIYMA3wGNuH6WCVL6bzXgDhP?usp=sharing
+# Ссылка на датасет:
+https://www.kaggle.com/datasets/mihailodin1/smoking-classification
