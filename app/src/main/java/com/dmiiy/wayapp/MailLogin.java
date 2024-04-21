@@ -30,8 +30,8 @@ private FirebaseAuth mAuth;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mail_login);
-        backsignin = (TextView) findViewById(R.id.textgotoreg);
-        backsignin.setOnClickListener(this);
+//        backsignin = (TextView) findViewById(R.id.textgotoreg);
+//        backsignin.setOnClickListener(this);
         forgetpassword = (TextView) findViewById(R.id.textmailforgetpas);
         forgetpassword.setOnClickListener(this);
         emaillogin= (MaterialEditText) findViewById(R.id.Emailemaillogin);
@@ -46,11 +46,6 @@ private FirebaseAuth mAuth;
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.textgotoreg: {
-                Intent intent = new Intent(MailLogin.this, RegesterWindow.class);
-                startActivity(intent);
-                break;
-            }
             case R.id.buttonsignin: {
                 userLogin();
                 break;

@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="60dp"
             android:layout_height="300dp"
-            android:src="@drawable/mapvrgr" />
+            android:src="@drawable/newmainscreen" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="На главном экране представлено две кнопки: №1 - для входа в Ваш личный аккаунт, №2 - для выбора маршрута, №3 - сканер QR-кода "
+            android:text="На главном экране представлено две кнопки: №1 - для входа в Ваш личный аккаунт, №2 и №3 - кнопки просмотра фотографий."
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp" />

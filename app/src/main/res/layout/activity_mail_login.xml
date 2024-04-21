@@ -81,15 +81,6 @@
         android:gravity="center"
         >
         <TextView
-            android:id="@+id/textgotoreg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Зарегестрироваться"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            tools:layout_editor_absoluteY="525dp" />
-        <TextView
             android:id="@+id/textmailforgetpas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

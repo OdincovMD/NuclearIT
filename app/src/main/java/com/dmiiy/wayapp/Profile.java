@@ -53,7 +53,7 @@ private LinearLayout support,about;
         progressBar=(ProgressBar)findViewById(R.id.progressBarprofile) ;
         progressBar.setVisibility(View.VISIBLE);
         deletebtn =(Button) findViewById(R.id.deleteac);
-       // appinfo=(TextView)findViewById(R.id.aboutapp);
+//        appinfo=(TextView)findViewById(R.id.aboutapp);
 //        appinfo.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -67,7 +67,7 @@ private LinearLayout support,about;
             public void onClick(View view) {
                 AlertDialog.Builder mailinfo =new AlertDialog.Builder(Profile.this);
                 mailinfo.setTitle("Техническая поддержка");
-                mailinfo.setMessage("Если у вас возникнут вопросы, то напишете на эту почту: way.it.rus@gmail.com");
+                mailinfo.setMessage("Если у вас возникнут вопросы, то напишете на эту почту: dimakulakov731@gmail.com");
                 mailinfo.setNegativeButton("Назад", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -79,15 +79,15 @@ private LinearLayout support,about;
             }
         });
 
-tg=(ImageView)findViewById(R.id.insta);
-tg.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Uri uri = Uri.parse("https://t.me/+XmC_6L3rMPU4MDU6");
-        Intent intent =new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
-});
+//tg=(ImageView)findViewById(R.id.insta);
+//tg.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View view) {
+//        Uri uri = Uri.parse("https://t.me/+XmC_6L3rMPU4MDU6");
+//        Intent intent =new Intent(Intent.ACTION_VIEW, uri);
+//        startActivity(intent);
+//    }
+//});
         usern = (TextView) findViewById(R.id.username);
         usern.setOnClickListener(new View.OnClickListener() {
             @Override

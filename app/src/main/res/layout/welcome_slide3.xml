@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:layout_marginTop="60dp"
-            android:src="@drawable/profileiconscreen" />
+            android:src="@drawable/newprofile" />
 
         <TextView
             android:layout_width="wrap_content"
