@@ -49,7 +49,7 @@
                     <div class="row row-space">
                         <div id="wrapper">
                             <label for="upload" id="fileDropBox">Drop files here.</label>
-                            <input type="file" id="upload" style="display:none" accept="image/*">
+                            <input type="file" id="upload" style="display:none" accept="image/*" onchange="file()">
                         </div>
                     </div>
                 </form>
@@ -67,6 +67,38 @@
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.esm.js') }}"></script>
 <script>
+    function file () {
+        let files = $("#upload")[0].files;
+        for (var i = 0, file; file = files[i]; i++) {
+            if (!file) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue; // Immediately move to the next file object.
+            }
+            if (file.size == 0) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue;
+            }
+            if (!file.type.match('image/.*')) {
+                $('#error').show()
+                $("#error").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#error").slideUp(500);
+                });
+                $('#error').hide()
+                continue;
+            }
+            sendFile(file); // Asychronously fire off a file read request.
+        } // for
+    }
+
+    $('#upload').onchange = file()
 
     function sendFile(file) {
         var xhr = new XMLHttpRequest();
@@ -166,7 +198,6 @@
             sendFile(file); // Asychronously fire off a file read request.
         } // for
     } // handleFileSelection
-
     document.getElementById('fileDropBox').addEventListener('dragover', handleDragOver, false);
     document.getElementById('fileDropBox').addEventListener('drop', handleFileSelection, false);
 </script>
